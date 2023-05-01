@@ -7,13 +7,18 @@
 
 include $(TOPDIR)/rules.mk
 
+# Tailscale 1.38+ requires Go 1.20 or adove,
+# which is not appliable by current OpenWRT golang buildscript.
+# Golang buildscript must adopt newer version of Go build procedure
+# but it's not that easy...
+# See: https://lore.kernel.org/buildroot/CA+h8R2rtcynkCBsz=_9yANOEguyPCOcQDj8_ns+cv8RS8+8t9A@mail.gmail.com/T/
 PKG_NAME:=tailscale
-PKG_VERSION:=1.32.3
+PKG_VERSION:=1.36.2
 PKG_RELEASE:=1
 
 PKG_SOURCE:=tailscale-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://codeload.github.com/tailscale/tailscale/tar.gz/v$(PKG_VERSION)?
-PKG_HASH:=4cf88a1d754240ce71b29d3a65ca480091ad9c614ac99c541cef6fdaf0585dd4
+PKG_HASH:=eadbc78e5f36d3af2af54bea3d7f051d06b9fabc239df8e48be243c273727f47
 
 PKG_MAINTAINER:=Jan Pavlinec <jan.pavlinec1@gmail.com>
 PKG_LICENSE:=BSD-3-Clause
